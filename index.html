@@ -347,7 +347,12 @@
         
             checkbox.addEventListener("change", function () {
                 if (checkbox.checked) {
-                    body.style.backgroundColor = "#333"; // Dark background color
+                    body.style.backgroundColor = "#333";
+                    let text  =document.querySelectorAll(".content,h1 ,h2 ,h3,h4,h5,h6,p , li ,label,.member-name ,.member-title , .member-description");
+                    text.forEach(function (element) {
+                        element.style.color = "white";
+                    });
+                     // Dark background color
                 } else {
                     body.style.backgroundColor = ""; // Reset to default background color
                 }
