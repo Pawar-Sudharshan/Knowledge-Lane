@@ -77,6 +77,7 @@ main img{
 .Carousel{
   width: 80vw;
   box-shadow: 0px 8px 12px rgb(146, 143, 149);
+  object-fit: contain;
 }
 
 .features h2{
