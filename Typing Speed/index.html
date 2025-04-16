@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Tester</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Typing Speed Test</h1>
+            <div class="stats">
+                <div class="timer">
+                    <span>Time:</span>
+                    <span id="time">60</span>s
+                </div>
+                <div class="wpm">
+                    <span>WPM:</span>
+                    <span id="wpm">0</span>
+                </div>
+                <div class="accuracy">
+                    <span>Accuracy:</span>
+                    <span id="accuracy">0</span>%
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="test-area">
+                <div id="sample-text" class="sample-text"></div>
+                <textarea id="user-input" placeholder="Start typing here..." disabled></textarea>
+                <button id="start-btn">Start Test</button>
+                <button id="reset-btn" class="hidden">Try Again</button>
+            </div>
+
+            <div id="results" class="results hidden">
+                <h2>Test Results</h2>
+                <div class="result-item">
+                    <span>Words Per Minute:</span>
+                    <span id="final-wpm">0</span>
+                </div>
+                <div class="result-item">
+                    <span>Accuracy:</span>
+                    <span id="final-accuracy">0</span>%
+                </div>
+                <div class="result-item">
+                    <span>Correct Characters:</span>
+                    <span id="correct-chars">0</span>
+                </div>
+                <div class="result-item">
+                    <span>Incorrect Characters:</span>
+                    <span id="incorrect-chars">0</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
