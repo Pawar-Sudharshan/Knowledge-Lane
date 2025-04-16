@@ -341,7 +341,7 @@
                 <h2>
                     FeedBack
                 </h2>
-                <form action="action_page.php">
+                <form action="http://localhost:3000/send" method="POST">
 
                     <label for="fname">First Name</label>
                     <input type="text" id="fname" name="firstname" placeholder="Your name..">
@@ -370,34 +370,47 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script>
-        const checkbox = document.querySelector('.switch input');
-        const body = document.body;
-
-        checkbox.addEventListener("change", function () {
-            if (checkbox.checked) {
-                body.style.backgroundColor = "#333";
-                let text = document.querySelectorAll(".content,h1 ,h2 ,h3,h4,h5,h6,p , li ,label,.member-name ,.member-title , .member-description");
-                text.forEach(function (element) {
-                    element.style.color = "white";
+        <script>
+            const checkbox = document.querySelector('.switch input');
+            const body = document.body;
+        
+            // Get all relevant text elements
+            const textElements = document.querySelectorAll(".content, h1, h2, h3, h4, h5, h6, p, li, label, .member-name, .member-title, .member-description");
+        
+            // Store original text colors when the page loads
+            textElements.forEach(function (element) {
+                element.setAttribute("data-original-color", getComputedStyle(element).color);
+            });
+        
+            checkbox.addEventListener("change", function () {
+                if (checkbox.checked) {
+                    // Apply dark background
+                    body.style.backgroundColor = "#333";
+                    textElements.forEach(function (element) {
+                        element.style.color = "white";
+                    });
+                } else {
+                    // Reset background and restore original colors
+                    body.style.backgroundColor = "";
+                    textElements.forEach(function (element) {
+                        element.style.color = element.getAttribute("data-original-color");
+                    });
+                }
+            });
+        </script>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const iframes = document.querySelectorAll("iframe");
+        
+                iframes.forEach(iframe => {
+                    if (!iframe.hasAttribute("loading")) {
+                        iframe.setAttribute("loading", "lazy");
+                    }
                 });
-                // Dark background color
-            } else {
-                body.style.backgroundColor = ""; // Reset to default background color
-            }
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const iframes = document.querySelectorAll("iframe");
-      
-          iframes.forEach(iframe => {
-            if (!iframe.hasAttribute("loading")) {
-              iframe.setAttribute("loading", "lazy");
-            }
-          });
-        });
-      </script>
+            });
+        </script>
+        
       
 
 </body>
