@@ -5,9 +5,6 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
-iframe{
-    loading:"lazy";
-}
 .container {
     width: 100vw;
     display: flex;
