@@ -1,3 +1,4 @@
+/* General reset and fonts */
 * {
     margin: 0;
     padding: 0;
@@ -6,23 +7,26 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #f0f4f8;  /* Soft light grayish blue */
     color: #333;
     line-height: 1.6;
 }
 
+/* Container styling */
 .container {
     max-width: 900px;
     margin: 50px auto;
     padding: 30px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Pure white background */
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
 }
 
+/* Header styling */
 header {
     text-align: center;
     margin-bottom: 40px;
+    color: #2c3e50; /* Darker text for contrast */
 }
 
 h1 {
@@ -30,10 +34,11 @@ h1 {
     color: #2c3e50;
 }
 
+/* Stats Section */
 .stats {
     display: flex;
     justify-content: space-around;
-    background-color: #f2f4f8;
+    background-color: #eaf1f3;  /* Light pastel blue */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -43,15 +48,12 @@ h1 {
 .stats div {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #34495e;
+    color: #34495e;  /* Darker text color */
 }
 
-.test-area {
-    margin-bottom: 30px;
-}
-
+/* Text areas */
 .sample-text {
-    background-color: #f9fbfc;
+    background-color: #f8f9fa;  /* Light grayish background */
     padding: 25px;
     border-radius: 10px;
     margin-bottom: 25px;
@@ -61,19 +63,21 @@ h1 {
     border: 1px solid #dfe6e9;
 }
 
+/* Correct and Incorrect text color */
 .sample-text span.correct {
-    color: #27ae60;
+    color: #27ae60;  /* Green for correct */
 }
 
 .sample-text span.incorrect {
-    color: #e74c3c;
+    color: #e74c3c;  /* Red for incorrect */
     text-decoration: underline;
 }
 
 .sample-text span.current {
-    background-color: #d0ebff;
+    background-color: #d0ebff; /* Soft blue background for current text */
 }
 
+/* Input Area */
 #user-input {
     width: 100%;
     height: 160px;
@@ -83,18 +87,19 @@ h1 {
     border-radius: 10px;
     resize: none;
     margin-bottom: 25px;
-    background-color: #fff;
-    color: #2c3e50;
+    background-color: #ffffff;  /* White background for input */
+    color: #2c3e50;  /* Dark text */
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.03);
 }
 
 #user-input:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: #3498db;  /* Focus color matching the blue theme */
 }
 
+/* Button Styling */
 button {
-    background-color: #3498db;
+    background-color: #3498db;  /* Bright blue button */
     color: white;
     border: none;
     padding: 14px 30px;
@@ -107,16 +112,18 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #2980b9;  /* Darker blue on hover */
     transform: scale(1.03);
 }
 
+/* Hidden content */
 .hidden {
     display: none;
 }
 
+/* Results section styling */
 .results {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa;  /* Light gray for the results */
     padding: 25px;
     border-radius: 10px;
     margin-top: 30px;
@@ -148,6 +155,6 @@ button:hover {
 }
 
 .result-item span:last-child {
-    color: #3498db;
+    color: #3498db;  /* Highlighted blue text */
     font-weight: bold;
 }
