@@ -1,7 +1,7 @@
 {
   "name": "knowledge-lane",
   "version": "1.0.0",
-  "description": "",
+  "description": "<div align=\"center\">   <!-- <img src=\"https://your-logo-url-here.png\" alt=\"Knowledge Lane Logo\" width=\"150\" /> -->   <h1>Knowledge Lane</h1>   <h3><em>Drive Through the Lane of Success 🚀</em></h3>",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,5 +9,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "nodemailer": "^6.10.1"
+  }
 }

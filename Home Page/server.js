@@ -4,45 +4,41 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
-
-// Middleware to parse form data (application/x-www-form-urlencoded)
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// Email sending route
-app.post('/send', async (req, res) => {
+app.post('/send', (req, res) => {
     const { firstname, lastname, country, subject } = req.body;
 
-    let transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'your_email@gmail.com',       // ✅ Replace with your Gmail
-            pass: 'your_app_password'           // ✅ Use 16-character Gmail App Password
+            user: 'your-email@gmail.com',
+            pass: 'your-app-password' // Not your Gmail password
         }
     });
 
     const mailOptions = {
-        from: 'your_email@gmail.com',
-        to: 'your_email@gmail.com',
-        subject: `Feedback from ${firstname} ${lastname}`,
-        text: `Name: ${firstname} ${lastname}\nCountry: ${country}\nMessage:\n${subject}`
+        from: 'your-email@gmail.com',
+        to: 'your-email@gmail.com', // or another email where you want to receive it
+        subject: 'New Feedback Received',
+        html: `<p><strong>Name:</strong> ${firstname} ${lastname}</p>
+               <p><strong>Country:</strong> ${country}</p>
+               <p><strong>Message:</strong> ${subject}</p>`
     };
 
-    try {
-        await transporter.sendMail(mailOptions);
-        res.send(`<script>alert("✅ Feedback sent successfully!"); window.history.back();</script>`);
-    } catch (err) {
-        console.error("Email Error:", err);
-        res.send(`<script>alert("❌ Failed to send email."); window.history.back();</script>`);
-    }
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+            res.status(500).send('Error sending email');
+        } else {
+            console.log('Email sent: ' + info.response);
+            res.status(200).send('Email sent successfully');
+        }
+    });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 Server is running at http://localhost:${PORT}`);
+app.listen(3000, () => {
+    console.log('Server started on http://localhost:3000');
 });
-
-// npm init -y
-// npm install express nodemailer body-parser cors
-// node server.js
