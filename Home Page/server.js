@@ -10,8 +10,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Serve static files (like your HTML form)
-app.use(express.static('public')); // if your HTML is in a folder named 'public'
+// Serve static files
+app.use(express.static('public'));
 
 app.post('/send-email', (req, res) => {
   const { firstname, lastname, country, subject } = req.body;
@@ -19,14 +19,14 @@ app.post('/send-email', (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'rahulgugulothu744@gmail.com',         // Replace with your Gmail
-      pass: 'Prem@7743'             // Replace with your Gmail App Password
+      user: 'pawarsudar32@gmail.com', // ✅ Your new Gmail
+      pass: 'nzrw etgd zbsx bfxv'       // ✅ Replace with your new Gmail App Password
     }
   });
 
   const mailOptions = {
-    from: 'your-gmail@gmail.com',
-    to: 'rahulgugulothu744@gmail.com',
+    from: 'pawarsudar32@gmail.com',  // ✅ Match the authenticated Gmail
+    to: 'pawarsudar32@gmail.com',    // ✅ You can also send to yourself
     subject: `New Feedback from ${firstname} ${lastname}`,
     text: `Country: ${country}\n\nMessage:\n${subject}`
   };
@@ -38,6 +38,7 @@ app.post('/send-email', (req, res) => {
     } else {
       console.log('Email sent:', info.response);
       res.status(200).send('Email sent successfully');
+      
     }
   });
 });
