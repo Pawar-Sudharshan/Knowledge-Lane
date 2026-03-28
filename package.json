@@ -1,4 +1,8 @@
 {
+
+  "overrides": {
+  "path-to-regexp": "8.4.0"
+},
   "name": "knowledge-lane",
   "version": "1.0.0",
   "description": "<div align=\"center\">   <!-- <img src=\"https://your-logo-url-here.png\" alt=\"Knowledge Lane Logo\" width=\"150\" /> -->   <h1>Knowledge Lane</h1>   <h3><em>Drive Through the Lane of Success 🚀</em></h3>",
